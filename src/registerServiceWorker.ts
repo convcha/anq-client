@@ -105,10 +105,12 @@ function checkValidServiceWorker(swUrl: string) {
     });
 }
 
+// noinspection JSUnusedGlobalSymbols
 export function unregister() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(registration => {
-      registration.unregister();
+      // noinspection JSIgnoredPromiseFromCall
+        registration.unregister();
     });
   }
 }
