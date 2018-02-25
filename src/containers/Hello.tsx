@@ -12,9 +12,9 @@ export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
     };
 }
 
-export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>) {
-    // noinspection JSUnusedGlobalSymbols
+export function mapDispatchToProps(dispatch: Dispatch<void>) {
     log('container: mapDispatchToProps');
+    // noinspection JSUnusedGlobalSymbols
     return {
         onIncrement: () => {
             log('container: dispatch(actions.incrementEnthusiasm())');
@@ -26,7 +26,7 @@ export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>)
         },
         onChangeName: (name: string) => {
             log('container: dispatch(actions.changeName(name))');
-            dispatch(actions.changeName(name));
+            dispatch(actions.changeName({name}));
         }
     };
 }
