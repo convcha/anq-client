@@ -7,15 +7,20 @@ import { StoreState } from './types';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import Hello from './containers/Hello';
+import { log } from 'util';
 
-const store = createStore<StoreState>(enthusiasm, {
-    enthusiasmLevel: 1,
-    languageName: 'TypeScript',
-});
+log('createStore');
+const store = createStore<StoreState>(
+    enthusiasm,
+    {
+        enthusiasmLevel: 1,
+        languageName: 'TS',
+    });
 
+log('ReactDOM.render');
 ReactDOM.render(
     <Provider store={store}>
-        <Hello />
+        <Hello/>
     </Provider>,
     document.getElementById('root') as HTMLElement
 );
