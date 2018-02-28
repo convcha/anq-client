@@ -1,4 +1,3 @@
-import { log } from 'util';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -11,7 +10,6 @@ import './index.css';
 import { Link } from 'react-router-dom';
 import Dashboard from './containers/Dashboard';
 
-log('ReactDOM.render');
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={appHistory}>

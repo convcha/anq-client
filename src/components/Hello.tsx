@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { log } from 'util';
 
 export interface Props {
     name: string;
@@ -10,7 +9,6 @@ export interface Props {
 }
 
 function Hello({name, enthusiasmLevel = 1, onIncrement, onDecrement, onChangeName}: Props) {
-    log('component: function Hello');
     if (enthusiasmLevel <= 0) {
         throw new Error('You could be a little more enthusiastic. :D');
     }
@@ -34,6 +32,5 @@ export default Hello;
 // helpers
 
 function getExclamationMarks(numChars: number) {
-    log('component: function getExclamationMarks');
     return Array(numChars + 1).join('!');
 }

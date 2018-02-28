@@ -1,12 +1,10 @@
 import * as React from 'react';
 import './App.css';
-import { log } from 'util';
 
 const logo = require('./logo.svg');
 
 class App extends React.Component {
   render() {
-    log('class App: render()');
     return (
       <div className="App">
         <header className="App-header">
