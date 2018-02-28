@@ -1,17 +1,19 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
-import hello, { HelloState } from './redux/modules/hello';
 import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
+import logger from 'redux-logger';
+
+import hello, { HelloState } from './redux/modules/hello';
 
 export const appHistory = createHistory();
-const middleware = routerMiddleware(appHistory);
+const router = routerMiddleware(appHistory);
 
 export default createStore(
     combineReducers({
         hello,
         router: routerReducer
     }),
-    applyMiddleware(middleware)
+    applyMiddleware(router, logger)
 );
 
 export type AppState = {
