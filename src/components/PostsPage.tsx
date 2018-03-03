@@ -1,14 +1,46 @@
 import * as React from 'react';
+import { log } from 'util';
 
 type State = {
   delay: number;
   data: string;
+  users: User[];
 };
 
-export class PostList extends React.Component<{}, State> {
+interface User {
+  id: number;
+  username: string;
+}
+
+interface PostListProps {
+  users?: User[];
+}
+
+const PostList: React.SFC<PostListProps> = (props) => {
+  const { users } = props;
+
+  if (users === undefined || users.length === 0) {
+    return (
+      <div>Loading..</div>
+    );
+  }
+
+  return (
+    <ul>
+      {users.map((user) => {
+        return (
+          <li key={user.id}>{`${user.id}: ${user.username}`}</li>
+        );
+      })}
+    </ul>
+  );
+};
+
+export class PostsPage extends React.Component<{}, State> {
   state: State = {
     delay: 0,
     data: '',
+    users: [],
   };
 
   handleDelayChange = (delay: string) => {
@@ -33,6 +65,18 @@ export class PostList extends React.Component<{}, State> {
     this.setState({data: JSON.stringify(json, null, ' ')});
   }
 
+  handleGetUsers = async () => {
+    this.setState({users: []});
+    const response: Response = await fetch(`https://jsonplaceholder.typicode.com/users`, {
+      method: 'GET'
+    });
+    const users = await response.json() as User[];
+    this.setState({users: users});
+    users.map((user) => {
+      log(user.id.toString());
+    });
+  }
+
   render() {
     return (
       <>
@@ -42,11 +86,17 @@ export class PostList extends React.Component<{}, State> {
         </div>
         <div>
           <textarea
-            rows={30}
-            cols={100}
+            rows={20}
+            cols={80}
             value={this.state.data}
             onChange={(e) => this.handleDataChange(e.target.value)}
           />
+        </div>
+        <div>
+          <button onClick={this.handleGetUsers}>Get users</button>
+        </div>
+        <div>
+          <PostList users={this.state.users}/>
         </div>
       </>
     );
