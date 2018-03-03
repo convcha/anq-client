@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { log } from 'util';
 
 type State = {
   delay: number;
@@ -12,11 +11,11 @@ interface User {
   username: string;
 }
 
-interface PostListProps {
+interface UserListProps {
   users?: User[];
 }
 
-const PostList: React.SFC<PostListProps> = (props) => {
+const UserList: React.SFC<UserListProps> = (props) => {
   const { users } = props;
 
   if (users === undefined || users.length === 0) {
@@ -36,7 +35,7 @@ const PostList: React.SFC<PostListProps> = (props) => {
   );
 };
 
-export class PostsPage extends React.Component<{}, State> {
+export class UserLisPage extends React.Component<{}, State> {
   state: State = {
     delay: 0,
     data: '',
@@ -72,9 +71,6 @@ export class PostsPage extends React.Component<{}, State> {
     });
     const users = await response.json() as User[];
     this.setState({users: users});
-    users.map((user) => {
-      log(user.id.toString());
-    });
   }
 
   render() {
@@ -96,7 +92,7 @@ export class PostsPage extends React.Component<{}, State> {
           <button onClick={this.handleGetUsers}>Get users</button>
         </div>
         <div>
-          <PostList users={this.state.users}/>
+          <UserList users={this.state.users}/>
         </div>
       </>
     );

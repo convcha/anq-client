@@ -9,7 +9,7 @@ import Hello from './containers/Hello';
 import './index.css';
 import { Link } from 'react-router-dom';
 import Dashboard from './containers/Dashboard';
-import { PostsPage } from './components/PostsPage';
+import { UserLisPage } from './components/UserLisPage';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -18,7 +18,7 @@ ReactDOM.render(
         <div className="HolyGrail-body">
           <main className="HolyGrail-content">
             <Route exact={true} path={'/'} component={Dashboard}/>
-            <Route path={'/posts'} component={PostsPage}/>
+            <Route path={'/posts'} component={UserLisPage}/>
               <Route path={'/hello'} component={Hello}/>
           </main>
           <nav className="HolyGrail-nav">
