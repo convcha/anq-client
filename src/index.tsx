@@ -9,7 +9,7 @@ import Hello from './containers/Hello';
 import './index.css';
 import { Link } from 'react-router-dom';
 import Dashboard from './containers/Dashboard';
-import { UserLisPage } from './components/UserLisPage';
+import { ScreensUserList } from './screens/User/List';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -18,8 +18,8 @@ ReactDOM.render(
         <div className="HolyGrail-body">
           <main className="HolyGrail-content">
             <Route exact={true} path={'/'} component={Dashboard}/>
-            <Route path={'/posts'} component={UserLisPage}/>
-              <Route path={'/hello'} component={Hello}/>
+            <Route path={'/users'} component={ScreensUserList}/>
+            <Route path={'/hello'} component={Hello}/>
           </main>
           <nav className="HolyGrail-nav">
             <ul className={'menu'}>
@@ -27,7 +27,7 @@ ReactDOM.render(
                 <Link to={'/'}>Dashboard</Link>
               </li>
               <li>
-                <Link to={'/posts'}>Posts</Link>
+                <Link to={'/users'}>User</Link>
               </li>
                 <li>
                     <Link to={'/hello'}>Hello</Link>

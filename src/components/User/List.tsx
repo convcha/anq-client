@@ -15,7 +15,7 @@ interface UserListProps {
   users?: User[];
 }
 
-const UserList: React.SFC<UserListProps> = (props) => {
+const List: React.SFC<UserListProps> = (props) => {
   const { users } = props;
 
   if (users === undefined || users.length === 0) {
@@ -35,7 +35,7 @@ const UserList: React.SFC<UserListProps> = (props) => {
   );
 };
 
-export class UserLisPage extends React.Component<{}, State> {
+export class UserList extends React.Component<{}, State> {
   state: State = {
     delay: 0,
     data: '',
@@ -92,7 +92,7 @@ export class UserLisPage extends React.Component<{}, State> {
           <button onClick={this.handleGetUsers}>Get users</button>
         </div>
         <div>
-          <UserList users={this.state.users}/>
+          <List users={this.state.users}/>
         </div>
       </>
     );
