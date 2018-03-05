@@ -5,7 +5,7 @@ export interface Props {
 }
 
 function Dashboard({name}: Props) {
-  return(
+  return (
     <>
       <h1>Dashboard</h1>
       Name: {name}

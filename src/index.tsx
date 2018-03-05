@@ -29,9 +29,9 @@ ReactDOM.render(
               <li>
                 <Link to={'/users'}>User</Link>
               </li>
-                <li>
-                    <Link to={'/hello'}>Hello</Link>
-                </li>
+              <li>
+                <Link to={'/hello'}>Hello</Link>
+              </li>
             </ul>
           </nav>
           <aside className="HolyGrail-ads">
