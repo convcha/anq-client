@@ -6,11 +6,21 @@ const actionCreator = actionCreatorFactory();
 
 // Actions
 export const userListActions = {
+  delayChange: actionCreator<{delay: number}>('DELAY_CHANGE'),
   getData: actionCreator.async<{ delay: number }, { data: string }, Error>('GET_DATA')
 };
 
-export class ActionDispatcher {
+export class UserListActionDispatcher {
   constructor(private dispatch: (action: Action) => void) {
+  }
+
+  public onDelayChange(delay: string): void {
+    const n = Number(delay);
+    if (isNaN(n)) {
+      alert(`${delay}は数値ではありません！`);
+      return;
+    }
+    this.dispatch(userListActions.delayChange({delay: parseInt(delay, 10)}));
   }
 
   public async getData(delay: number): Promise<void> {
@@ -48,6 +58,10 @@ const initialState: UserListState = {
 
 // Reducer
 export const userListReducer = reducerWithInitialState(initialState)
+  .case(userListActions.delayChange, ((state, payload) => ({
+    ...state,
+    delay: payload.delay
+  })))
   .case(userListActions.getData.started, state => ({
     ...state,
     data: '',
