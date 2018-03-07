@@ -6,16 +6,13 @@ type State = {
   users: User[];
 };
 
-interface User {
-  id: number;
-  username: string;
-}
-
 interface UserListProps {
   users?: User[];
+  data: string;
+  getData: (delay: number) => Promise<void>;
 }
 
-const List: React.SFC<UserListProps> = (props) => {
+const List: React.SFC<{users: User[]}> = (props) => {
   const { users } = props;
 
   if (users === undefined || users.length === 0) {
@@ -35,7 +32,7 @@ const List: React.SFC<UserListProps> = (props) => {
   );
 };
 
-export class UserList extends React.Component<{}, State> {
+export class UserList extends React.Component<UserListProps, State> {
   state: State = {
     delay: 0,
     data: '',
@@ -55,15 +52,6 @@ export class UserList extends React.Component<{}, State> {
     this.setState({data: data});
   }
 
-  handleGet = async () => {
-    this.setState({data: ''});
-    const response: Response = await fetch(`https://httpbin.org/delay/${this.state.delay}`, {
-      method: 'GET'
-    });
-    const json: string = await response.json();
-    this.setState({data: JSON.stringify(json, null, ' ')});
-  }
-
   handleGetUsers = async () => {
     this.setState({users: []});
     const response: Response = await fetch(`https://jsonplaceholder.typicode.com/users`, {
@@ -78,13 +66,13 @@ export class UserList extends React.Component<{}, State> {
       <>
         <div>
           <input type={'text'} value={this.state.delay} onChange={(e) => this.handleDelayChange(e.target.value)}/>
-          <button onClick={this.handleGet}>GET</button>
+          <button onClick={() => this.props.getData(this.state.delay)}>GET</button>
         </div>
         <div>
           <textarea
             rows={20}
             cols={80}
-            value={this.state.data}
+            value={this.props.data}
             onChange={(e) => this.handleDataChange(e.target.value)}
           />
         </div>

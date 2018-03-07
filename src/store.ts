@@ -5,6 +5,7 @@ import logger from 'redux-logger';
 
 import hello, { HelloState } from './redux/modules/hello';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { userListReducer, UserListState } from './redux/modules/User/UserList';
 
 export const appHistory = createHistory();
 const router = routerMiddleware(appHistory);
@@ -12,6 +13,7 @@ const router = routerMiddleware(appHistory);
 export default createStore(
   combineReducers({
     hello,
+    userList: userListReducer,
     router: routerReducer
   }),
   composeWithDevTools(
@@ -20,5 +22,6 @@ export default createStore(
 );
 
 export type AppState = {
-  hello: HelloState
+  hello: HelloState,
+  userList: UserListState,
 };
