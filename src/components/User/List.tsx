@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { UserListActionDispatcher } from '../../redux/modules/User/UserList';
+import { Button } from 'semantic-ui-react';
+import { TextArea } from 'semantic-ui-react';
 
 interface UserListProps {
   delay: number;
@@ -42,10 +44,10 @@ export const UserList: React.SFC<UserListProps> = (props) => {
     <>
       <div>
         <input type={'text'} value={props.delay} onChange={(e) => props.actions.onDelayChange(e.target.value)}/>
-        <button onClick={() => props.actions.getData(props.delay)}>GET</button>
+        <Button onClick={() => props.actions.getData(props.delay)}>GET</Button>
       </div>
       <div>
-          <textarea
+          <TextArea
             rows={20}
             cols={80}
             value={props.data}
@@ -53,7 +55,7 @@ export const UserList: React.SFC<UserListProps> = (props) => {
           />
       </div>
       <div>
-        <button>Get users</button>
+        <Button>Get users</Button>
       </div>
       <div>
         <List users={props.users}/>
