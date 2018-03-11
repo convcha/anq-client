@@ -1,13 +1,9 @@
 import * as React from 'react';
 import { Container, Image, List, Menu, Segment } from 'semantic-ui-react';
-import Hello from './containers/Hello';
-import { Route } from 'react-router';
-import { ScreensUserList } from './screens/User/List';
-import Dashboard from './containers/Dashboard';
 import { Link } from 'react-router-dom';
 
 const logo = require('./logo.svg');
-const Layout = () => (
+const Layout: React.SFC = ({children}) => (
   <div>
     <Menu fixed="top" inverted>
       <Container>
@@ -29,9 +25,7 @@ const Layout = () => (
     </Menu>
 
     <Container text style={{marginTop: '7em'}}>
-      <Route exact={true} path={'/'} component={Dashboard}/>
-      <Route path={'/users'} component={ScreensUserList}/>
-      <Route path={'/hello'} component={Hello}/>
+      {children}
     </Container>
 
     <Segment

@@ -7,11 +7,14 @@ import store, { appHistory } from './store';
 import './index.css';
 import 'semantic-ui-css/semantic.min.css';
 import Layout from './Layout';
+import Routes from './components/Routes';
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={appHistory}>
-      <Layout/>
+      <Layout>
+        <Routes/>
+      </Layout>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root') as HTMLElement
