@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 
 const logo = require('../logo.svg');
 const Layout: React.SFC = ({children}) => (
-  <div>
+  <div
+    style={{
+      display: 'flex',
+      minHeight: '100vh',
+      flexDirection: 'column',
+    }}
+  >
     <Menu fixed="top" inverted>
       <Container>
         <Menu.Item as={Link} to={'/'} header>
@@ -24,7 +30,7 @@ const Layout: React.SFC = ({children}) => (
       </Container>
     </Menu>
 
-    <Container text style={{marginTop: '7em'}}>
+    <Container text style={{marginTop: '7em', flex: '1'}}>
       {children}
     </Container>
 
