@@ -6,7 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import store, { appHistory } from './store';
 import './index.css';
 import 'semantic-ui-css/semantic.min.css';
-import Layout from './Layout';
+import Layout from './components/Layout';
 import Routes from './components/Routes';
 
 ReactDOM.render(

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Container, Image, List, Menu, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const logo = require('./logo.svg');
+const logo = require('../logo.svg');
 const Layout: React.SFC = ({children}) => (
   <div>
     <Menu fixed="top" inverted>
