@@ -1,34 +1,28 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
+/*body {*/
+  /*display: flex;*/
+  /*min-height: 100vh;*/
+  /*flex-direction: column;*/
+/*}*/
 
-.HolyGrail {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
+/*header,*/
+/*footer {*/
+  /*flex: 0;*/
+/*}*/
 
-.HolyGrail-body {
-  display: flex;
-  flex: 1;
-}
+/*.holyGrail {*/
+  /*display: flex;*/
+  /*flex: 1;*/
+/*}*/
 
-.HolyGrail-content {
-  flex: 1;
-}
+/*.content {*/
+  /*flex: 1;*/
+/*}*/
 
-.HolyGrail-nav, .HolyGrail-ads {
-  /* 12em is the width of the columns */
-  flex: 0 0 12em;
-}
+/*.side-nav,*/
+/*.side-bar{*/
+  /*width: 200px;*/
+/*}*/
 
-.HolyGrail-nav {
-  /* put the nav on the left */
-  order: -1;
-}
-
-.menu {
-  list-style: none;
-}
+/*.side-nav {*/
+  /*order: -1;*/
+/*}*/
