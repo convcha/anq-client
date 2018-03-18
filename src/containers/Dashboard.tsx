@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import { AppState } from '../store';
 import Dashboard from '../components/Dashboard';
+import { withPage } from '../hocs/withPage';
+import { AppState } from '../store';
 
 export function mapStateToProps(appState: AppState) {
   return {
@@ -12,4 +13,4 @@ export function mapDispatchToProps() {
   return {};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default withPage({title: 'ダッシュボード'})(connect(mapStateToProps, mapDispatchToProps)(Dashboard));
