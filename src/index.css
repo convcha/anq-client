@@ -1,28 +1,34 @@
-/*body {*/
-/*display: flex;*/
-/*min-height: 100vh;*/
-/*flex-direction: column;*/
-/*}*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
 
-/*header,*/
-/*footer {*/
-/*flex: 0;*/
-/*}*/
+.HolyGrail {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-/*.holyGrail {*/
-/*display: flex;*/
-/*flex: 1;*/
-/*}*/
+.HolyGrail-body {
+  display: flex;
+  flex: 1;
+}
 
-/*.content {*/
-/*flex: 1;*/
-/*}*/
+.HolyGrail-content {
+  flex: 1;
+}
 
-/*.side-nav,*/
-/*.side-bar{*/
-/*width: 200px;*/
-/*}*/
+.HolyGrail-nav, .HolyGrail-ads {
+  /* 12em is the width of the columns */
+  flex: 0 0 12em;
+}
 
-/*.side-nav {*/
-/*order: -1;*/
-/*}*/
+.HolyGrail-nav {
+  /* put the nav on the left */
+  order: -1;
+}
+
+.menu {
+  list-style: none;
+}
